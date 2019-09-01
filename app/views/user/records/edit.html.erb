@@ -1,0 +1,13 @@
+<h1>Edit Register</h1>
+
+<%= form_for([:user, @record]) do |f| %>
+  <%= label_tag :date %>
+  <%= text_field_tag(:date, value = nil, html_options = {class: 'form-control date', placeholder: 'yyyy/mm/dd' }) %>
+
+  <%= label_tag :time %>
+  <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control time', placeholder: 'hh:mm' }) %>
+  
+  <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
+<% end %>
+
+<%= link_to "Cancel", user_path, :class => "btn btn-lg btn-secondary" %>

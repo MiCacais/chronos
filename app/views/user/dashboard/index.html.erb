@@ -1,0 +1,48 @@
+<h1>Time Register</h1>
+<p>My timestamps</p>
+
+<% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+<% end %>
+
+<%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-lg btn-secondary" %>
+
+<%= Time.now.strftime("%I:%M%p") %>
+
+<%= form_for ([:user, @record]) do |f| %>
+  <p :time><%= Time.now.strftime("%I:%M%p") %></p>
+  <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Day</th>
+      <th scope="col">Time</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% if @records.first.nil? %>
+    <td colspan=4>You still do not have records</td>
+  <% else %>
+    <% @records.each do |record| %>
+      <tr>
+        <th scope="row"><%= record.time.to_date.strftime("%F") %></th>
+        <td><%= record.time.to_time.strftime("%I:%M%p") %></td>
+        <td>
+          <%= link_to edit_user_record_path(record.id) do %>
+            Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to user_record_path(record), method: :delete, data: { confirm: 'Are you sure?'} do %>
+            Delete
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+  </tbody>
+</table>
