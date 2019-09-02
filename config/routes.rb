@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :records
     get 'user', to: 'user/dashboard#index'
+    root :to => "user/dashboard#index"
   end
 
   devise_for :users

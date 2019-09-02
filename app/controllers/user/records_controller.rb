@@ -1,17 +1,17 @@
 class User::RecordsController < User::DashboardController
-  before_action :set_record
+  #before_action :set_record
 
   def index
     @records = Record.where(user_id: @currentUser)
-  end
-
-  def new
+    set_record
   end
 
   def edit
+    set_record
   end
 
   def update
+    set_record
     if @record.update(time: params_time)
         redirect_to user_path, notice: 'Successfully registered!'
     else

@@ -1,18 +1,25 @@
-<h1>Time Register</h1>
-<p>My timestamps</p>
+<div class="container">
+
+<div class="jumbotron">
+  <h1 class="text-center">CHRONOS</h1>
+</div>
 
 <% if flash[:notice] %>
+  <div class="alert alert-success" role="alert">
     <p><%= flash[:notice] %></p>
+  </div>
 <% end %>
 
 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-lg btn-secondary" %>
 
-<%= Time.now.strftime("%I:%M%p") %>
-
-<%= form_for ([:user, @record]) do |f| %>
-  <p :time><%= Time.now.strftime("%I:%M%p") %></p>
-  <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
-<% end %>
+<div class="card text-center" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= Time.now.strftime("%I:%M%p") %></h5>
+    <%= form_for([:user, @record]) do |f| %>
+      <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -46,3 +53,4 @@
   <% end %>
   </tbody>
 </table>
+</div>
