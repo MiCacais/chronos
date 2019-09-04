@@ -1,22 +1,24 @@
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">CHRONOS</a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "nav-link" %>
+    </li>
+  </ul>
+</nav>
+
 <div class="container">
-
-<div class="jumbotron">
-  <h1 class="text-center">CHRONOS</h1>
-</div>
-
 <% if flash[:notice] %>
   <div class="alert alert-success" role="alert">
     <p><%= flash[:notice] %></p>
   </div>
 <% end %>
 
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-lg btn-secondary" %>
-
 <div class="card text-center" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= Time.now.strftime("%I:%M%p") %></h5>
     <%= form_for([:user, @record]) do |f| %>
-      <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
+      <%= f.submit 'Register', :class => "btn btn-lg btn-secondary" %>
     <% end %>
   </div>
 </div>

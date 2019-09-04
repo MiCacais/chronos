@@ -1,5 +1,4 @@
 class User::RecordsController < User::DashboardController
-  #before_action :set_record
 
   def index
     @records = Record.where(user_id: @currentUser)
