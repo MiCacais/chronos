@@ -12,11 +12,12 @@
  *
  *= require_tree .
  *= require_self
- /*
- *= require font-awesome
  */
- @import "font-awesome";
+ 
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+ @import 'bootstrap_sb_admin_base_v1';
  @import "pickadate/default";
  @import "pickadate/default.date";
  @import "pickadate/default.time";

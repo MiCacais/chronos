@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'bootstrap'
 gem 'pickadate-rails'
-gem 'font-awesome-rails'
+gem 'bootstrap_sb_admin_base_v1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
