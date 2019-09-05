@@ -1,13 +1,27 @@
+<br/>
 <h1>Edit Register</h1>
+<hr/>
 
-<%= form_for([:user, @record]) do |f| %>
-  <%= label_tag :date %>
-  <%= text_field_tag(:date, value = nil, html_options = {class: 'form-control date', placeholder: 'yyyy/mm/dd' }) %>
-
-  <%= label_tag :time %>
-  <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control time', placeholder: 'hh:mm' }) %>
-  
-  <%= f.submit 'Register', :class => "btn btn-primary btn-lg" %>
-<% end %>
-
-<%= link_to "Cancel", user_path, :class => "btn btn-lg btn-secondary" %>
+<div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-body">
+        <%= form_for([:user, @record]) do |f| %>
+          <div class="form-group">
+            <div class="form-label-group">
+            <%= text_field_tag(:date, value = nil, html_options = {class: 'form-control date', placeholder: 'yyyy/mm/dd' }) %>
+              <label for="inputEmail">Date</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
+              <%= text_field_tag(:time, value = nil, html_options = { class: 'form-control time', placeholder: 'hh:mm' }) %>
+              <label for="inputPassword">Time</label>
+            </div>
+          </div>
+          <%= f.submit 'Register', :class => "btn btn-primary btn-block" %>
+        <% end %>
+        <br/>
+        <%= link_to "Cancel", user_path, :class => "btn btn-block btn-secondary" %>
+      </div>
+    </div>
+  </div>
